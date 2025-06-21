@@ -1,17 +1,17 @@
-import { getCollection } from 'astro:content'
+// import { getCollection } from 'astro:content'
 import rss from '@astrojs/rss'
 
 import { SITE } from '~/config'
 import { withBasePath } from '~/utils/path'
 
 export async function GET() {
-  const blog = await getCollection('blog')
+  // const blog = await getCollection('blog')
 
-  const filteredBlogitems = blog.filter((item) => !item.data.draft)
+  // const filteredBlogitems = blog.filter((item) => !item.data.draft)
 
-  const sortedBlogItems = filteredBlogitems.sort(
-    (a, b) => new Date(b.data.pubDate) - new Date(a.data.pubDate)
-  )
+  // const sortedBlogItems = filteredBlogitems.sort(
+  //   (a, b) => new Date(b.data.pubDate) - new Date(a.data.pubDate)
+  // )
 
   return rss({
     title: SITE.title,
@@ -25,13 +25,15 @@ export async function GET() {
         <link>${SITE.website}</link>
       </image>`,
 
-    items: sortedBlogItems.map((item) => ({
-      title: `${item.data.title}`,
-      link: withBasePath(`/blog/${item.id}`),
-      pubDate: item.data.pubDate,
-      description: item.data.description,
-      author: SITE.author,
-    })),
+    items: [],
+
+    // items: sortedBlogItems.map((item) => ({
+    //   title: `${item.data.title}`,
+    //   link: withBasePath(`/blog/${item.id}`),
+    //   pubDate: item.data.pubDate,
+    //   description: item.data.description,
+    //   author: SITE.author,
+    // })),
 
     stylesheet: withBasePath('/rss-styles.xsl'),
   })

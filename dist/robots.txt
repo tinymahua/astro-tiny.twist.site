@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://o3s.xyz/sitemap-index.xml
