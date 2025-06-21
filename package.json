@@ -19,6 +19,12 @@
     "prepare": "simple-git-hooks",
     "postbuild": "pagefind --site dist && del-cli \"dist/pagefind/*ui*\""
   },
+  "dependencies": {
+    "@iconify-json/arcticons": "^1.2.28",
+    "@iconify-json/fluent": "^1.2.25",
+    "@iconify-json/material-symbols": "^1.2.27",
+    "@unocss/preset-icons": "^66.2.3"
+  },
   "devDependencies": {
     "@ascorbic/feed-loader": "^1.0.4",
     "@astrojs/check": "^0.9.4",

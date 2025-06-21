@@ -1,5 +1,5 @@
 # build output
-dist/
+#dist/
 
 # generated types
 .astro/
@@ -28,3 +28,5 @@ pnpm-debug.log*
 
 # local archive
 .local
+
+# $env:HTTPS_PROX="127.0.0.1:1080"
