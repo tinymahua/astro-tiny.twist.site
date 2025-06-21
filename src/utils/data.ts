@@ -21,7 +21,7 @@ type CollectionEntryList<K extends CollectionKey = CollectionKey> =
  * Retrieves filtered posts from the specified content collection.
  * In production, it filters out draft posts.
  */
-export async function getFilteredPosts(collection: 'blog' | 'changelog') {
+export async function getFilteredPosts(collection: 'blog' | 'changelog'|'articles') {
   return await getCollection(collection, ({ data }) => {
     return import.meta.env.PROD ? !data.draft : true
   })
@@ -31,7 +31,7 @@ export async function getFilteredPosts(collection: 'blog' | 'changelog') {
  * Sorts an array of posts by their publication date in descending order.
  */
 export function getSortedPosts(
-  posts: CollectionEntryList<'blog' | 'changelog'>
+  posts: CollectionEntryList<'blog' | 'changelog'|'articles'>
 ) {
   return posts.sort(
     (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()

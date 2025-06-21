@@ -27,6 +27,14 @@ const blog = defineCollection({
   schema: postSchema,
 })
 
+const articles = defineCollection({
+  loader: glob({
+    base: './src/content/articles',
+    pattern: '**/[^_]*.{md,mdx}',
+  }),
+  schema: postSchema,
+})
+
 const projects = defineCollection({
   loader: file('src/content/projects/data.json'),
   schema: projectSchema,
@@ -102,6 +110,7 @@ export const collections = {
   pages,
   home,
   blog,
+  articles,
   projects,
   changelog,
   streams,

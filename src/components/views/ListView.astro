@@ -20,7 +20,7 @@ interface Props {
 
 const { collectionType, pageToc } = Astro.props
 
-const VALID_COLLECTION_TYPE = ['blog', 'changelog', 'streams', 'feeds']
+const VALID_COLLECTION_TYPE = ['blog', 'changelog', 'streams', 'feeds', 'articles']
 const WARNING = `The '${collectionType}' collection type is not built-in.
   Modify <code>ListView.astro</code> to render it.`
 
@@ -30,8 +30,8 @@ const tocEnabled = Array.isArray(toc) && toc[0] && pageToc
 let years: string[] = []
 
 /* Posts */
-let sortedBlogItems: CollectionEntry<'blog' | 'changelog'>[] = []
-if (collectionType === 'blog' || collectionType === 'changelog') {
+let sortedBlogItems: CollectionEntry<'blog' | 'changelog' | 'articles'>[] = []
+if (collectionType === 'blog' || collectionType === 'changelog' || collectionType === 'articles') {
   const blogItems = await getFilteredPosts(collectionType)
   sortedBlogItems = getSortedPosts(blogItems)
 

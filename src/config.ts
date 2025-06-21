@@ -15,11 +15,17 @@ export const SITE: Site = {
 export const UI: Ui = {
   internalNavs: [
     {
-      path: '/blog',
-      title: 'Blog',
+      path: '/articles',
+      title: 'Articles',
       displayMode: 'alwaysText',
-      text: 'Blog',
+      text: 'Articles',
     },
+    // {
+    //   path: '/blog',
+    //   title: 'Blog',
+    //   displayMode: 'alwaysText',
+    //   text: 'Blog',
+    // },
     {
       path: '/projects',
       title: 'Projects',
