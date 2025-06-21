@@ -1,12 +1,12 @@
 import type { Site, Ui, Features } from './types'
 
 export const SITE: Site = {
-  website: 'https://astro-antfustyle-theme.vercel.app/',
+  website: 'https://o3s.xyz/',
   base: '/',
-  title: 'Astro AntfuStyle Theme',
+  title: 'Refactor.XYZ',
   description:
-    'A customizable, feature-rich Astro theme for blog and portfolio creation',
-  author: 'Stephanie Lin',
+    '',
+  author: 'Tiny.Twist',
   lang: 'en',
   ogLocale: 'en_US',
   imageDomains: ['cdn.bsky.app'],
