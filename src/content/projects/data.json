@@ -12,5 +12,12 @@
     "desc": "This is a files manager, writing with Flutter and Rust.",
     "icon": "i-arcticons:axet-file-manager",
     "category": "Maintaining Projects"
+  },
+  {
+    "id": "n0-computer/iroh",
+    "link": "https://github.com/n0-computer/iroh",
+    "desc": "peer-2-peer that just works",
+    "icon": "i-ri:p2p-fill",
+    "category": "Following Projects"
   }
 ]
