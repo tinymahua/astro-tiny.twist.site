@@ -1,5 +1,32 @@
 import { z } from 'astro:content'
 
+export const toolSchema = z.object({
+  id: z.string().describe('**Required**. Name of the project to be displayed.'),
+  title: z
+    .string()
+    .default('')
+    .describe(
+      'Sets the page title, formatted with `SITE.title` as `<pageTitle> - <siteTitle>` for metadata and automatic OG image generation. If undefined or empty, only `<siteTitle>` is displayed, and OG image generation is skipped.'
+    ),
+  subtitle: z
+    .string()
+    .default('')
+    .describe(
+      'Provides a page subtitle. If provided, it will be displayed below the title. If not needed, leave the field as an empty string or delete it.'
+    ),
+  description: z
+    .string()
+    .default('')
+    .describe(
+      'Provides a brief description, used in meta tags for SEO and sharing purposes. If not needed, leave the field as an empty string or delete it, and the `SITE.description` will be used directly.'
+    ),
+  link: z
+    .string()
+    .url('Invalid url.')
+    .describe('**Required**. URL linking to the project page or repository.'),
+  category: z.string().describe('**Required**. Category of the project.'),
+})
+
 /* Pages*/
 export const pageSchema = z.object({
   title: z

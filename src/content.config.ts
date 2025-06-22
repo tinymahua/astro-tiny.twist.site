@@ -11,7 +11,9 @@ import {
   postSchema,
   projectSchema,
   streamSchema,
+  toolSchema,
 } from '~/content/schema'
+
 
 const pages = defineCollection({
   loader: glob({ base: './src/pages', pattern: '**/*.mdx' }),
@@ -40,6 +42,11 @@ const projects = defineCollection({
   schema: projectSchema,
 })
 
+const tools = defineCollection( {
+  loader: file('src/content/tools/data.json'),
+  schema: toolSchema,
+})
+
 const changelog = defineCollection({
   loader: glob({
     base: './src/content/changelog',
@@ -55,7 +62,7 @@ const streams = defineCollection({
 
 const feeds = defineCollection({
   loader: feedLoader({
-    url: 'https://astro.build/rss.xml',
+    url: 'https://o3s.xyz/rss.xml',
   }),
 })
 
@@ -112,6 +119,7 @@ export const collections = {
   blog,
   articles,
   projects,
+  tools,
   changelog,
   streams,
   feeds,

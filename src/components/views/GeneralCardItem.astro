@@ -1,0 +1,20 @@
+---
+export interface GeneralCardItemData {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  link: string;
+}
+
+interface Props {
+  item: GeneralCardItemData,
+}
+
+const { item } = Astro.props;
+---
+
+<div>
+  <p>{item.title}</p>
+  <a href={item.link}></a>
+</div>

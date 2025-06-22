@@ -1,0 +1,64 @@
+---
+import {
+  getCollection,
+} from 'astro:content'
+import type { CollectionKey } from 'astro:content'
+import type { GeneralCardItemData } from './GeneralCardItem.astro'
+import GeneralCardItem from './GeneralCardItem.astro'
+import { FEATURES } from '~/config'
+import Toc from '../toc/Toc.astro'
+import Categorizer
+  from '../base/Categorizer.astro'
+import GroupItem from './GroupItem.astro'
+interface Props {
+  collectionType: CollectionKey
+  pageToc: boolean
+}
+
+const { collectionType, pageToc } = Astro.props
+let isEmpty = false
+let data: Record<string, GeneralCardItemData[]> = {}
+
+/* Tools */
+if (collectionType === 'tools') {
+  const tools = await getCollection(collectionType)
+  isEmpty = tools.length === 0
+
+  data = tools
+    .map((p) => p.data)
+    .reduce((acc: Record<string, GeneralCardItemData[]>, { category, ...rest }) => {
+      ;(acc[category] ??= []).push(rest)
+      return acc
+    }, {})
+}
+
+/* Toc */
+const { toc } = FEATURES
+const tocEnabled = Array.isArray(toc) && toc[0] && pageToc
+---
+<!--{JSON.stringify(data)}-->
+{
+  isEmpty ? (
+    <div>No Content</div>
+    ) : (
+      <>
+        {tocEnabled && (
+          <Toc
+            anchors={Object.keys(data)}
+            style={
+              toc[1].displayPosition === 'right' ? 'right: -5rem' : undefined
+            }
+          />
+        )}
+
+        {Object.keys(data).map((key, idx) => (
+          <div class="slide-enter" style={{ '--enter-stage': idx }}>
+            <Categorizer text={key} needId={tocEnabled} wide={true} />
+            {Object.values(data[key]).map((item) => (
+              <GeneralCardItem item={item }/>
+            ))}
+          </div>
+        ))}
+        </>
+    )
+  }

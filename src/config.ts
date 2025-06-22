@@ -39,6 +39,13 @@ export const UI: Ui = {
     //   text: 'Shorts',
     //   icon: 'i-material-symbols-note-stack-outline-sharp',
     // },
+    {
+      path: '/tools',
+      title: 'Tools',
+      displayMode: 'iconToTextOnMobile',
+      text: 'Tools',
+      icon: 'i-mdi:tools',
+    },
     // {
     //   path: '/highlights',
     //   title: 'Highlights',
@@ -145,10 +152,10 @@ export const FEATURES: Features = {
     },
   ],
   share: [
-    true,
+    false,
     {
-      twitter: [true, '@ste7lin'],
-      bluesky: [true, '@ste7lin.bsky.social'],
+      twitter: [false, '@ste7lin'],
+      bluesky: [false, '@ste7lin.bsky.social'],
       mastodon: false,
       facebook: false,
       pinterest: false,
@@ -161,10 +168,10 @@ export const FEATURES: Features = {
   giscus: [
     true,
     {
-      'data-repo': 'lin-stephanie/astro-antfustyle-theme',
-      'data-repo-id': 'R_kgDOLylKbA',
+      'data-repo': 'tinymahua/astro-tiny.twist.site',
+      'data-repo-id': 'R_Bkegfe0GDeifejigjeijgeif',
       'data-category': 'Giscus',
-      'data-category-id': 'DIC_kwDOLylKbM4Cpugn',
+      'data-category-id': 'DIC_joiFJEIGe4oigdkg',
       'data-mapping': 'title',
       'data-strict': '0',
       'data-reactions-enabled': '1',

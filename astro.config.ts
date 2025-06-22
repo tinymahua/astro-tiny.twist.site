@@ -4,6 +4,7 @@ import robotsTxt from 'astro-robots-txt'
 import unocss from 'unocss/astro'
 import astroExpressiveCode from 'astro-expressive-code'
 import mdx from '@astrojs/mdx'
+import react from '@astrojs/react';
 
 import { remarkPlugins, rehypePlugins } from './plugins'
 import { SITE } from './src/config'
@@ -19,6 +20,7 @@ export default defineConfig({
     unocss({ injectReset: true }),
     astroExpressiveCode(),
     mdx(),
+    react(),
   ],
   markdown: {
     syntaxHighlight: false,
