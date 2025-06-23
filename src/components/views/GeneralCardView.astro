@@ -9,13 +9,17 @@ import { FEATURES } from '~/config'
 import Toc from '../toc/Toc.astro'
 import Categorizer
   from '../base/Categorizer.astro'
-import GroupItem from './GroupItem.astro'
 interface Props {
   collectionType: CollectionKey
-  pageToc: boolean
+  pageToc: boolean,
+  gap?: 'number'
+  minCardWidth?: number
+  maxCardWidth?: number
 }
 
-const { collectionType, pageToc } = Astro.props
+const { collectionType, pageToc,  gap = 16,
+  minCardWidth,
+  maxCardWidth, } = Astro.props
 let isEmpty = false
 let data: Record<string, GeneralCardItemData[]> = {}
 
@@ -53,10 +57,13 @@ const tocEnabled = Array.isArray(toc) && toc[0] && pageToc
 
         {Object.keys(data).map((key, idx) => (
           <div class="slide-enter" style={{ '--enter-stage': idx }}>
+
             <Categorizer text={key} needId={tocEnabled} wide={true} />
-            {Object.values(data[key]).map((item) => (
-              <GeneralCardItem item={item }/>
-            ))}
+            <div class="card-group">
+              {Object.values(data[key]).map((item) => (
+                <GeneralCardItem item={item }/>
+              ))}
+            </div>
           </div>
         ))}
         </>

@@ -3,13 +3,12 @@ title: Tools
 subtitle: Collected some useful tools, include some shared items in internet by lovely persons.
 description: Enjoy these please, hope you can find something you want.
 bgType: false
-toc: false
+toc: true
 ogImage: false
 ---
 
 import BaseLayout from '~/layouts/BaseLayout.astro'
 import StandardLayout from '~/layouts/StandardLayout.astro'
-import CardView from '~/components/views/CardView.astro'
 import GeneralCardView from '~/components/views/GeneralCardView.astro'
 
 <BaseLayout
@@ -19,11 +18,12 @@ import GeneralCardView from '~/components/views/GeneralCardView.astro'
   ogImage={frontmatter.ogImage}
 >
   <StandardLayout
+    class="max-w-300"
     title={frontmatter.title}
     subtitle={frontmatter.subtitle}
     isCentered={true}
   >
 
-    <GeneralCardView collectionType="tools" mode="grid" />
+    <GeneralCardView collectionType="tools" mode="grid" pageToc={frontmatter.toc} />
   </StandardLayout>
 </BaseLayout>

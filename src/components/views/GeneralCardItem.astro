@@ -14,7 +14,17 @@ interface Props {
 const { item } = Astro.props;
 ---
 
-<div>
-  <p>{item.title}</p>
-  <a href={item.link}></a>
+<div class="card-outer">
+  <a href={item.link}>
+<div class={`overflow-hidden flex flex-col
+      h-full b b-[#8884] rounded-lg
+      shadow-transition-500 card-box`}>
+  <div class="card-content">
+    <p class="card-title">{item.title}</p>
+    <hr>
+    <p class="card-description">{item.description}</p>
+    <div class="card-link">{item.link}</div>
+  </div>
+</div>
+  </a>
 </div>
